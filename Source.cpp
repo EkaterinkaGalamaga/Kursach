@@ -9,12 +9,12 @@ void function(int N, int mas[N][N]);
 
 int main() {
 	int number;
-	cout << "Введите цифру 1 для введения элементов матрицы; цифру 2 для создания матрицы со случайными элементами.\n";
+	cout << "Enter the number 1 to enter the matrix elements; the number 2 to create a matrix with random elements.\n";
 step1:
 	cin >> number;
 	if (number != 1 && number != 2)
 	{
-		cout << "Введиде 1 или 2!\n";
+		cout << "Enter 1 or 2!\n";
 		goto step1;
 	}
 	if (number == 2) {
@@ -22,7 +22,7 @@ step1:
 		int mas[N][N];
 		int i, j;
 		srand(time(0));
-		cout << "Матрица сгенерирована: \n";
+		cout << "The matrix is generated: \n";
 		for (i = 0; i < N; i++) {
 			for (j = 0; j < N; j++) {
 				mas[i][j] = rand() % 21 - 2;
@@ -35,14 +35,14 @@ step1:
 	}
 	if (number == 1) {
 		int n;
-		cout << "Введите кол-во строк (столбцов) квадратной матрицы: ";
+		cout << "Enter the number of rows (columns) of the square matrix:";
 		cin >> n;
 		int i, j;
 		int N = (int)n;
 		int mas[N][N];
 		for (i = 0; i < N; i++) {
 			for (j = 0; j < N; j++) {
-				printf("Элемент[%d][%d] = ", i + 1, j + 1);
+				printf("Element[%d][%d] = ", i + 1, j + 1);
 				scanf("%d", &mas[i][j]);
 			}
 		}
@@ -66,17 +66,17 @@ void function(int N, int mas[N][N])
 				sum = sum + mas[i][j];
 			}
 			count = 0;
-			cout << "Сумма строки № " << i + 1 << " равна: " << sum << "\n";
+			cout << "Line amount № " << i + 1 << " = " << sum << "\n";
 			sum_2 += sum;
 			sum = 0;
 		}
 		if (count > 0) {
 			for (j = 0; j < N; j++)
 				count = 0;
-			cout << "Строка № " << i + 1 << " имеет отрицательное число, пропускаем...\n";
+			cout << "Line № " << i + 1 << " has a negative number, skip it...\n";
 		}
 	}
-	cout << "\nОбщая сумма элементов строк, не содержащих отрицательные числа: " << sum_2 << "\n";
+	cout << "\nThe total sum of row elements that do not contain negative numbers:" << sum_2 << "\n";
 	cout << "\n";
 	//--------------------------------------------------------------------------------------
 	int summa[N];
@@ -91,7 +91,7 @@ void function(int N, int mas[N][N])
 		cout << summa[k] << "\n";
 	}
 	//------------------------------------------------------
-	if (k = N - 1) cout << "Побочная диагональ, пропускаем...\n";
+	if (k = N - 1) cout << "Side diagonal, skip...\n";
 	//------------------------------------------------------
 	for (k = N - 1; k < N * 2 - 2; k++) {
 		summa[k] = 0;
@@ -112,7 +112,7 @@ void function(int N, int mas[N][N])
 		if ((k != N * 2 - 1) && min2 > summa[k]) min2 = summa[k];
 	}
 	if (min1 < min2)
-		cout << "Минимальная сумма по диагоналям = " << min1 << "\n";
+		cout << "Minimum amount on the diagonals = " << min1 << "\n";
 	else
-		cout << "Минимальная сумма по диагоналям = " << min2 << "\n";
+		cout << "Minimum amount on the diagonals =" << min2 << "\n";
 }
